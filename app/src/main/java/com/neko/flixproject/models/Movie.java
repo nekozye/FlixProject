@@ -9,6 +9,7 @@ import java.util.List;
 
 public class Movie {
 
+        private static final String URL_PREFIX = "https://image.tmdb.org/t/p/";
 
         String posterPath;
         String title;
@@ -31,7 +32,7 @@ public class Movie {
         }
 
         public String getPosterPath() {
-                return posterPath;
+                return String.format(URL_PREFIX+"%s",this.posterPath);
         }
 
         public String getTitle() {
