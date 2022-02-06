@@ -13,16 +13,21 @@ import java.util.List;
 @Parcel
 public class Movie {
 
-        String posterPath;
-        String backdropPath;
-        String title;
-        String overView;
+        public String posterPath;
+        public String backdropPath;
+        public String title;
+        public String overView;
+        public double rating;
+
+        public Movie() {
+        }
 
         public Movie(JSONObject jsonObject) throws JSONException {
             posterPath = jsonObject.getString("poster_path");
             backdropPath = jsonObject.getString("backdrop_path");
             title = jsonObject.getString("original_title");
             overView = jsonObject.getString("overview");
+            rating = jsonObject.getDouble("vote_average");
         }
 
         public static List<Movie> fromJsonArray(JSONArray movieJsonArray) throws JSONException {
@@ -50,5 +55,7 @@ public class Movie {
         public String getOverView() {
                 return overView;
         }
+
+        public double getRating() { return rating; }
 
 }
