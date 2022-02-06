@@ -90,8 +90,25 @@ public class MovieDetailActivity extends YouTubeBaseActivity {
 
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+
+
+                //see if movie is popular
+                if (movie_in_question.getRating() <= 5.0)
+                {
+                    Log.i("YTPlayer","no auto,rating:"+Double.toString(movie_in_question.getRating()));
+                    //autoplay. not work when setting is off
+
+                    youTubePlayer.cueVideo(youtubeKey);
+                }
+                else
+                {
+                    Log.i("YTPlayer","autoplay,rating:"+Double.toString(movie_in_question.getRating()));
+                    //autoplay. not work when setting is off
+
+                    youTubePlayer.loadVideo(youtubeKey);
+                }
+
                 Log.i("YTPlayer","init successful");
-                youTubePlayer.cueVideo(youtubeKey);
             }
 
             @Override
