@@ -29,6 +29,8 @@ import org.parceler.Parcels;
 import java.io.FileNotFoundException;
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
     Context context;
@@ -94,7 +96,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             {
                 imageURL = movie.getPosterPath();
             }
-            Glide.with(context).load(imageURL).placeholder(R.drawable.emptymovie).error(R.drawable.emptymovie).into(ivPoster);
+            Glide.with(context).load(imageURL).centerCrop().transform(new RoundedCornersTransformation(30,2)).placeholder(R.drawable.emptymovie).error(R.drawable.emptymovie).into(ivPoster);
 
             //Registering onclicklistener
 
