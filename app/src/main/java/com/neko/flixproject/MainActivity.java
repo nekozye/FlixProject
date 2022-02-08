@@ -1,6 +1,7 @@
 package com.neko.flixproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.util.Log;
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.neko.flixproject.adapters.MovieAdapter;
+import com.neko.flixproject.databinding.ActivityMainBinding;
 import com.neko.flixproject.models.Movie;
 
 import org.json.JSONArray;
@@ -30,15 +32,28 @@ public class MainActivity extends AppCompatActivity {
 
 
     List<Movie> movies;
+    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        //binding setup
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
+
+        //if there is anything that needs to be stored, store it now?
+        RecyclerView rvMovies = binding.rvMovies;
+        //
+
+
+
+
+
+
+
+        // functionality setup
 
         getSupportActionBar().hide();
-
-        RecyclerView rvMovies = findViewById(R.id.rvMovies);
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         rvMovies.addItemDecoration(dividerItemDecoration);
@@ -80,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, "onFailure!");
             }
         });
+
+
 
     }
 }

@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="movie" type="com.neko.flixproject.models.Movie"/>
+    </data>
+
+
     <RelativeLayout
         android:id="@+id/rollingContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         >
 
         <ImageView
@@ -27,6 +34,7 @@
             android:textStyle="bold"
             android:layout_toEndOf="@+id/ivPoster"
             android:textSize="24sp"
+            android:text="@{movie.title}"
             tools:text="Spider-Man: No Way Home" />
 
         <TextView
@@ -39,6 +47,7 @@
             android:maxLines="8"
             android:ellipsize="end"
             android:layout_toEndOf="@+id/ivPoster"
+            android:text="@{movie.overView}"
             tools:text="Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man." />
     </RelativeLayout>
 </layout>

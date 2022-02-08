@@ -1,6 +1,13 @@
 package com.neko.flixproject.models;
 
+import android.content.res.Configuration;
 import android.util.Log;
+import android.widget.ImageView;
+
+import androidx.databinding.BindingAdapter;
+
+import com.bumptech.glide.Glide;
+import com.neko.flixproject.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -9,6 +16,8 @@ import org.parceler.Parcel;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 @Parcel
 public class Movie {
@@ -31,6 +40,9 @@ public class Movie {
             movieID = jsonObject.getInt("id");
             rating = jsonObject.getDouble("vote_average");
         }
+
+
+
 
         public static List<Movie> fromJsonArray(JSONArray movieJsonArray) throws JSONException {
                 List<Movie> movies = new ArrayList<>();

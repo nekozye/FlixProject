@@ -1,6 +1,7 @@
 package com.neko.flixproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,7 @@ import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.neko.flixproject.databinding.ActivityMovieDetailBinding;
 import com.neko.flixproject.models.Movie;
 
 import org.json.JSONArray;
@@ -26,7 +28,7 @@ public class MovieDetailActivity extends YouTubeBaseActivity {
     private static final String YOUTUBE_API_KEY = "AIzaSyColxBWj6AjbOakLNi3R0SkrcTzOmVN90A";
     public static final String VIDEOS_URL = "https://api.themoviedb.org/3/movie/%d/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
 
-
+    private ActivityMovieDetailBinding binding;
 
     TextView tvTitle;
     TextView tvOverview;
@@ -39,14 +41,16 @@ public class MovieDetailActivity extends YouTubeBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_detail);
+
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_movie_detail);
 
 
 
-        tvTitle = findViewById(R.id.tvTitle);
-        tvOverview = findViewById( R.id.tvOverview);
-        rbRating = findViewById(R.id.rbRating);
-        youTubePlayerView = findViewById(R.id.player);
+        tvTitle = binding.tvTitle;
+        tvOverview = binding.tvOverview;
+        rbRating = binding.rbRating;
+        youTubePlayerView = binding.player;
+
 
 
 
@@ -83,6 +87,8 @@ public class MovieDetailActivity extends YouTubeBaseActivity {
 
             }
         });
+
+
     }
 
     private void initializeYoutube(String youtubeKey){

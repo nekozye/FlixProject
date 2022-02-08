@@ -16,12 +16,14 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.neko.flixproject.MovieDetailActivity;
 import com.neko.flixproject.R;
+import com.neko.flixproject.databinding.ItemMovieBinding;
 import com.neko.flixproject.models.Movie;
 
 import org.parceler.Parcels;
@@ -35,6 +37,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
     Context context;
     List<Movie> movies;
+
 
     public MovieAdapter(Context context, List<Movie> movies)
     {
@@ -51,14 +54,21 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
         return new ViewHolder(movieView);
     }
 
+
+
     //populate data into the item through holder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+
+
         //get the movie at the position
         Movie movie = movies.get(position);
         //bind the movie data into the VH
         holder.bind(movie);
 
+        holder.binding.setMovie(movie);
+        holder.binding.executePendingBindings();
     }
 
     //returns the item count
@@ -70,6 +80,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
+        final ItemMovieBinding binding;
+
         RelativeLayout rvLayout;
         TextView tvTitle;
         TextView tvOverview;
@@ -77,15 +89,23 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvTitle = itemView.findViewById(R.id.tvTitle);
-            tvOverview = itemView.findViewById(R.id.tvOverview);
-            ivPoster = itemView.findViewById(R.id.ivPoster);
-            rvLayout = itemView.findViewById(R.id.rollingContainer);
+
+
+            binding = ItemMovieBinding.bind(itemView);
+
+            tvTitle = binding.tvTitle;
+            tvOverview = binding.tvOverview;
+            ivPoster = binding.ivPoster;
+            rvLayout = binding.rollingContainer;
+
+
+
         }
 
         public void bind(Movie movie) {
-            tvTitle.setText(movie.getTitle());
-            tvOverview.setText(movie.getOverView());
+            //the texts and titles are one-side binded in xml files
+
+
             String imageURL;
 
             if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)

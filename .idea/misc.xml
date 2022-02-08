@@ -5,12 +5,12 @@
       <map>
         <entry key="..\:/Linux/AndroidApplications/FlixProject/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.346875" />
         <entry key="..\:/Linux/AndroidApplications/FlixProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.346875" />
-        <entry key="..\:/Linux/AndroidApplications/FlixProject/app/src/main/res/layout-land/item_movie.xml" value="0.19477434679334918" />
+        <entry key="..\:/Linux/AndroidApplications/FlixProject/app/src/main/res/layout-land/item_movie.xml" value="0.1" />
         <entry key="..\:/Linux/AndroidApplications/FlixProject/app/src/main/res/layout-land/landscape.xml" value="0.4691358024691358" />
         <entry key="..\:/Linux/AndroidApplications/FlixProject/app/src/main/res/layout-port/portrait.xml" value="0.49230072463768115" />
         <entry key="..\:/Linux/AndroidApplications/FlixProject/app/src/main/res/layout/activity_main.xml" value="0.23768115942028986" />
         <entry key="..\:/Linux/AndroidApplications/FlixProject/app/src/main/res/layout/activity_movie_detail.xml" value="0.25" />
-        <entry key="..\:/Linux/AndroidApplications/FlixProject/app/src/main/res/layout/item_movie.xml" value="0.23768115942028986" />
+        <entry key="..\:/Linux/AndroidApplications/FlixProject/app/src/main/res/layout/item_movie.xml" value="0.1" />
       </map>
     </option>
   </component>
